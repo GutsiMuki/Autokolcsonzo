@@ -1,0 +1,16 @@
+﻿@using Autokolcsonzo.Models
+@model List<Auto>
+
+<table border="1">
+
+    @foreach(Auto a in Model)
+    {
+        <tr>
+            <td>@a.Id</td>
+            <td>@a.Modell</td>
+            <td>@a.Rendszam</td>
+        </tr>
+    }
+
+    </table>
+

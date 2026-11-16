@@ -1,12 +1,125 @@
 ﻿@using Autokolcsonzo.Models
 @model Ugyfel
 
-<form method="post" asp-action="UjUgyfel" asp-controller="Ugyfel"> 
-    <label for="Nev">Név:</label>
-    <input type="text" id="Nev" asp-for="Nev" required /><br>
+<div class="ugyfel-form-container">
+    <div class="ugyfel-form-card">
+        <h2>Új ügyfél</h2>
+        <p class="ugyfel-form-subtitle">Add meg az ügyfél adatait.</p>
 
-    <label for="Email">Email:</label>
-    <input type="email" id="Email" asp-for="Email" required /><br>
+        <form method="post" asp-action="UjUgyfel" asp-controller="Ugyfel">
+            <div class="ugyfel-form-group">
+                <label for="Nev">Név</label>
+                <input type="text" id="Nev" asp-for="Nev" required
+                       placeholder="Teljes név" />
+            </div>
 
-    <input type="submit" value="Hozzáadás" />
-</form>
+            <div class="ugyfel-form-group">
+                <label for="Email">Email</label>
+                <input type="email" id="Email" asp-for="Email" required
+                       placeholder="pelda@email.hu" />
+            </div>
+
+            <button type="submit" class="ugyfel-form-btn">
+                Hozzáadás
+            </button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .ugyfel-form-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+        padding: 2rem 1rem;
+    }
+
+    .ugyfel-form-card {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 8px 40px rgba(255, 0, 110, 0.3);
+        padding: 2.5rem 2rem;
+        width: 100%;
+        max-width: 420px;
+        border: 3px solid #ffbe0b;
+    }
+
+        .ugyfel-form-card h2 {
+            margin: 0 0 0.25rem;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #8338ec;
+        }
+
+    .ugyfel-form-subtitle {
+        margin: 0 0 1.75rem;
+        font-size: 0.9rem;
+        color: #ff006e;
+        font-weight: 600;
+    }
+
+    .ugyfel-form-group {
+        margin-bottom: 1.25rem;
+    }
+
+        .ugyfel-form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #3a86ff;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .ugyfel-form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2.5px solid #8338ec;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #1a1a2e;
+            background: #f8f0ff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+
+            .ugyfel-form-group input:focus {
+                outline: none;
+                border-color: #ff006e;
+                box-shadow: 0 0 0 4px rgba(255, 0, 110, 0.2);
+                background: #fff;
+            }
+
+            .ugyfel-form-group input::placeholder {
+                color: #c084fc;
+            }
+
+    .ugyfel-form-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 0.85rem;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(90deg, #ff006e, #ffbe0b);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.2s;
+        box-shadow: 0 4px 16px rgba(255, 0, 110, 0.4);
+    }
+
+        .ugyfel-form-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 0, 110, 0.6);
+        }
+
+        .ugyfel-form-btn:active {
+            transform: scale(0.97);
+        }
+</style>   

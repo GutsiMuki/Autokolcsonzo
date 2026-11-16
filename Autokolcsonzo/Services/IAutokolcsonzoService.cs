@@ -14,7 +14,7 @@ namespace Autokolcsonzo.Services
         List<Ugyfel> Ugyfelek();
 
         //Az ügyfél egyedi email címmel rendelkezik!
-        bool UjUgyfel(string nev, string email);
+        bool UjUgyfel(Ugyfel U);
 
         //ÁTÍRHATÓ: autó és ügyfél objektumokra
         bool UjBerles(int autoId, int ugyfelId, DateOnly kezdet, int napok);
@@ -29,5 +29,9 @@ namespace Autokolcsonzo.Services
         List<(string Kategoria, int Darab)> KategoriaStatisztika();
 
         //BŐVÍTHETŐ...
+
+        bool UjGyarto(string nev);
+
+        bool UjKategoria(string nev);
     }
 }

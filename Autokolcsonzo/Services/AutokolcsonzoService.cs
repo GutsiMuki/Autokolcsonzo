@@ -1,4 +1,5 @@
 ﻿using Autokolcsonzo.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,7 @@ namespace Autokolcsonzo.Services
 
         public List<Auto> SzabadAutok()
         {
-            return Context.DbAuto.Where(a => a.Szabad).ToList();
+            return Context.DbAuto.Include(b => b.Berlesek).ToList().Where(a => a.Szabad).ToList();
         }
 
         public List<Ugyfel> Ugyfelek()
@@ -52,14 +53,39 @@ namespace Autokolcsonzo.Services
             throw new NotImplementedException();
         }
 
-        public bool UjUgyfel(string nev, string email)
+        public bool UjUgyfel(Ugyfel U)
         {
-            throw new NotImplementedException();
+            Context.DbUgyfel.Add(U);
+            
+            if (Context.SaveChanges() > 0)
+                return true;
+            else
+                return false;
         }
 
         public bool Visszahozatal(int berlesId, DateOnly datum)
         {
             throw new NotImplementedException();
+        }
+
+        public bool UjGyarto(string nev)
+        {
+            Gyarto G = new Gyarto { Nev = nev };
+            Context.DbGyarto.Add(G);
+            if (Context.SaveChanges() > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool UjKategoria(string nev)
+        {
+            Kategoria K = new Kategoria { Nev = nev };
+            Context.DbKategoria.Add(K);
+            if (Context.SaveChanges() > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

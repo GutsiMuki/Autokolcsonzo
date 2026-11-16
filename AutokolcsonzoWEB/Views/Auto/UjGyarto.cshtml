@@ -1,0 +1,8 @@
+﻿@using Autokolcsonzo.Models
+@model Gyarto
+
+<form method="post" asp-action="UjGyarto" asp-controller="Auto">
+    <label for="Nev">Gyártó neve:</label>
+    <input type="text" id="Nev" asp-for="Nev" required /><br>
+    <input type="submit" value="Hozzáadás" />
+</form>

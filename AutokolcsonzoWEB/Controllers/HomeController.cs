@@ -17,7 +17,17 @@ namespace AutokolcsonzoWEB.Controllers
         public IActionResult Index()
         {
             
+            return View();
+        }
+
+        public IActionResult Auto()
+        {
             return View(_service.Autok());
+        }
+
+        public IActionResult SzabadAutok()
+        {
+            return View(_service.SzabadAutok());
         }
 
     }

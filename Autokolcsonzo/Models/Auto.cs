@@ -24,6 +24,7 @@ namespace Autokolcsonzo.Models
 
         public List<Berles> Berlesek { get; set; } = new();
 
+        [NotMapped]
         public bool Szabad { get {return Berlesek.All(b => b.Visszahozva != null); }}
     }
 }

@@ -1,0 +1,9 @@
+﻿@using Autokolcsonzo.Models
+
+@model Kategoria
+
+<form method="post" asp-action="UjKategoria" asp-controller="Auto">
+    <label for="Nev">Kategória neve:</label>
+    <input type="text" id="Nev" asp-for="Nev" required /><br>
+    <input type="submit" value="Hozzáadás" />
+</form>
